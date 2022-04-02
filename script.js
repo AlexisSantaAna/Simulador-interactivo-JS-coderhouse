@@ -14,7 +14,7 @@ let direccion;
 
 function propinaFunc(montoPropina) {
     propina = montoPropina
-    while (isNaN(propina)) {
+    while (isNaN(propina) || propina == "") {
         propina = prompt("Ingrese un valor correcto expresado en números")
     }
     return costo += parseInt(propina)
