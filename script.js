@@ -73,8 +73,11 @@ while (true) {
                     misComics += "The Flash Vol. 1: Lightning Strikes Twice\n";
                     costo += 1000
                     break;
-            }
+            }            
             reset = prompt(`Su carrito incluye:\n${misComics}\nDesea seguir comprando? (si/no)`)
+            while (reset != "si" && reset != "no") {
+                reset = prompt(`Desea seguir comprando?\nDebe ingresar si/no`)
+            }
         }
         while (true) {
             comoPaga = prompt(`Su compra final es de:\n${misComics}\nPrecio final credito $${costo}\nPrecio final en efectivo -10% $${costo - costo * 0.1}\nPrecio final con Billetera Santa Fe -30% $${costo - costo * 0.3}\nCómo desea abonar?`).toLowerCase()
