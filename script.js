@@ -5,7 +5,7 @@ aparecerá en alert una lista con su carrito hasta el momento. En caso de arrepe
 tiene la opción de eliminar un item.
 En caso de pagar en efectivo se le hará un 10% de descuento sobre el monto total.
 */
-let misComics = ""
+let misComics = []
 let costo = 0
 let reset;
 let comoPaga;
@@ -34,71 +34,71 @@ while (true) {
             }
             switch (compra) {
                 case 1:
-                    misComics += "Amazing Spider-Man by Nick Spencer Vol. 15\n";
+                    misComics.push(`Amazing Spider-Man by Nick Spencer Vol. 15\n`)
                     costo += 1200
                     break;
                 case 2:
-                    misComics += "The Amazing Spider-Man (2018) #80\n";
+                    misComics.push(`The Amazing Spider-Man (2018) #80\n`)
                     costo += 2200
                     break;
                 case 3:
-                    misComics += "Man Without Fear (2019) #3\n";
+                    misComics.push(`Man Without Fear (2019) #3\n`)
                     costo += 1150
                     break;
                 case 4:
-                    misComics += "Daredevil (2019) #33\n";
+                    misComics.push(`Daredevil (2019) #33\n`)
                     costo += 3300
                     break;
                 case 5:
-                    misComics += "Tony Stark: Iron Man (2018) #15\n";
+                    misComics.push(`Tony Stark: Iron Man (2018) #15\n`)
                     costo += 1500
                     break;
                 case 6:
-                    misComics += "Iron Man (2020) #14\n";
+                    misComics.push(`Iron Man (2020) #14\n`)
                     costo += 5200
                     break;
                 case 7:
-                    misComics += "Batman: The Killing Joke - The Deluxe Edition\n";
+                    misComics.push(`Batman: The Killing Joke - The Deluxe Edition\n`)
                     costo += 3400
                     break;
                 case 8:
-                    misComics += "The Dark Knight Returns 30th Anniversary Edition\n";
+                    misComics.push(`The Dark Knight Returns 30th Anniversary Edition\n`)
                     costo += 1700
                     break;
                 case 9:
-                    misComics += "The Flash: Rebirth\n";
+                    misComics.push(`The Flash: Rebirth\n`)
                     costo += 4200
                     break;
                 case 10:
-                    misComics += "The Flash Vol. 1: Lightning Strikes Twice\n";
+                    misComics.push(`The Flash Vol. 1: Lightning Strikes Twice\n`)
                     costo += 1000
                     break;
-            }            
-            reset = prompt(`Su carrito incluye:\n${misComics}\nDesea seguir comprando? (si/no)`)
+            }
+            reset = prompt(`Su carrito incluye:\n${misComics.join("")}\nDesea seguir comprando? (si/no)`)
             while (reset != "si" && reset != "no") {
                 reset = prompt(`Desea seguir comprando?\nDebe ingresar si/no`)
             }
-        }
+        }        
         while (true) {
-            comoPaga = prompt(`Su compra final es de:\n${misComics}\nPrecio final credito $${costo}\nPrecio final en efectivo -10% $${costo - costo * 0.1}\nPrecio final con Billetera Santa Fe -30% $${costo - costo * 0.3}\nCómo desea abonar?`).toLowerCase()
+            comoPaga = prompt(`Su compra final es de:\n${misComics.join("")}\nPrecio final credito $${costo}\nPrecio final en efectivo -10% $${costo - costo * 0.1}\nPrecio final con Billetera Santa Fe -30% $${costo - costo * 0.3}\nCómo desea abonar?`).toLowerCase()
             switch (comoPaga) {
                 case "credito":
                     alert(`Su ticket final es de $${costo}`)
                     propinaFunc(prompt("Ingrese propina para el cadete"))
                     envio(prompt("Ingrese su dirección para el envío"))
-                    alert(`Información de su pedido:\nProductos:\n${misComics}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
+                    alert(`Información de su pedido:\nProductos:\n${misComics.join("")}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
                     break
                 case "efectivo":
                     alert(`Su ticket final es de $${costo - costo * 0.1}`)
                     propinaFunc(parseInt(prompt("Ingrese propina para el cadete")))
                     envio(prompt("Ingrese su dirección para el envío"))
-                    alert(`Información de su pedido:\nProductos:\n${misComics}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
+                    alert(`Información de su pedido:\nProductos:\n${misComics.join("")}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
                     break
                 case "billetera santa fe":
                     alert(`Su ticket final es de $${costo - costo * 0.3}`)
                     propinaFunc(parseInt(prompt("Ingrese propina para el cadete")))
                     envio(prompt("Ingrese su dirección para el envío"))
-                    alert(`Información de su pedido:\nProductos:\n${misComics}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
+                    alert(`Información de su pedido:\nProductos:\n${misComics.join("")}\nMonto final más propina: $${costo}\nDirección de envío: ${direccion}\nTiempo estimado de demora: 2 días hábiles\n\n¡¡¡Gracias por su compra!!!`)
                     break
                 default:
                     alert("Debe ingresar una opción correcta")
@@ -113,3 +113,4 @@ while (true) {
         alert("La respuesta debe ser si/no")
     }
 }
+console.log(misComics)
