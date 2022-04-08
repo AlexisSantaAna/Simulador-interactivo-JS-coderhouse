@@ -6,6 +6,13 @@ tiene la opción de eliminar un item.
 En caso de pagar en efectivo se le hará un 10% de descuento sobre el monto total.
 */
 let misComics = []
+let personajes = [
+    {name: "Spiderman", creator: "Marvel"},
+    {name: "Batman", creator: "Dc"},
+    {name: "Daredevil", creator: "Marvel"},
+    {name: "Flash", creator: "Dc"},
+    {name: "Iron Man", creator: "Marvel"},
+]
 let costo = 0
 let reset;
 let comoPaga;
@@ -114,3 +121,16 @@ while (true) {
     }
 }
 console.log(misComics)
+
+const respuesta = prompt("¿Antes de irse, desea buscar en nuestra base de datos algún personaje disponible en stock? (si/no)")
+
+if (respuesta == "si") {
+    const personaje = prompt("¿Qué personaje desea buscar?")
+    resp = personajes.find(x => x.name == personaje);    
+    if (resp != undefined) {
+        alert(`El personaje ${resp.name} de la firma ${resp.creator} sí se encuentra en stock`)
+    } else {
+        alert(`El personaje no se encuentra en stock`)
+    }
+}
+
